@@ -36,13 +36,15 @@ shutdown() {
     echo "Valheim Server is shutting down..."
 
     # Terminate process by PID
-    kill -2 $1
+    kill -INT $VALHEIM_PID
 
-    # Wait for Valhiem Server to end.
-    wait $1
+    while [ -d "/proc/$VALHEIM_PID" ]; do
+        echo "Waiting for Valheim background process ($VALHEIM_PID) to end."
+        sleep 5
+    done
 
-    # Exit with status Zero.
-    exit 0
+    echo "Valheim background process has shutdown."
+    exit
 }
 
 # Call the shutdown function when an interupt or termination signal is sent.
