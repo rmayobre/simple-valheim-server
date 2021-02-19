@@ -18,6 +18,7 @@ docker build -t rmayobre/valheimserver .
 ### Create Container
 ```
 docker run -d \
+--restart always \
 --name valheim-server \
 -p 2456-2458:2456-2458/udp \
 -v /path/to/mount:/home/steam/valheim-data \
