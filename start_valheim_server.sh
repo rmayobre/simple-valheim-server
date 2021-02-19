@@ -36,10 +36,14 @@ shutdown() {
     echo "Valheim Server is shutting down..."
 
     # Terminate process by PID
-    kill -2 $1
+    kill -INT $1
+
+    echo "Waiting for Valheim background process to end."
 
     # Wait for Valhiem Server to end.
     wait $1
+
+    echo "Valheim background process has shutdown."
 
     # Exit with status Zero.
     exit 0

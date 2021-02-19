@@ -19,9 +19,10 @@ docker build -t rmayobre/valheimserver .
 ```
 docker run -d \
 --name valheim-server \
+-p 2456-2458:2456-2458/udp \
 -v /path/to/mount:/home/steam/valheim-data \
 -e SERVER_NAME="Server Name" \
 -e WORLD_NAME="World Name" \
--e SERVER_PASS="password" \
+-e PASSWORD="password" \
 rmayobre/valheimserver:latest
 ```
