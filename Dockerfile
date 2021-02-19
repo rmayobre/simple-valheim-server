@@ -56,7 +56,7 @@ RUN set -x \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Use SteamCMD to install Valheim Server
-RUN ./steamcmd.sh +login anonymous \
+RUN "${STEAMCMD_DIR}"/steamcmd.sh +login anonymous \
 +force_install_dir $SERVER_DIR \
 +app_update 896660 \
 validate +exit
